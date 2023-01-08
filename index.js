@@ -12,7 +12,9 @@ app.get('/', (req, res) => {
 app.get('/:id', async (req, res) => {
     try {
 
-        browser = !browser ? await puppeteer.launch() : browser;
+        browser = !browser ? await puppeteer.launch({
+            product: 'firefox'
+          }) : browser;
 
         const page = await browser.newPage();
 
